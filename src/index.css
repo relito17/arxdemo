@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced night sky background */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 25px 5px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 25px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 125px 20px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 70px 125px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(2.5px 2.5px at 190px 160px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 200px 200px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 250px 250px;
+  opacity: 0;
+  animation: twinkle 8s infinite linear;
+}
+
+.stars::after {
+  background-position: 125px 125px;
+  animation-delay: 4s;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+  20% {
+    opacity: 0.65;
+  }
+  80% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px) rotate(1deg);
+  }
+}
+
+/* Enhanced futuristic hover effects */
+.futuristic-hover {
+  @apply relative overflow-hidden transition-all duration-500;
+}
+
+.futuristic-hover::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-all duration-500
+    bg-gradient-to-r from-blue-600/10 via-blue-400/5 to-blue-600/10;
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+.futuristic-hover:hover::before {
+  @apply opacity-100;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Enhanced button animations */
+.interactive-button {
+  @apply relative overflow-hidden transition-all duration-300
+    bg-gradient-to-r from-blue-600 to-blue-500
+    hover:from-blue-500 hover:to-blue-400
+    active:from-blue-700 active:to-blue-600
+    text-white font-medium rounded-full
+    transform hover:scale-105 active:scale-95
+    shadow-lg hover:shadow-blue-500/25;
+}
+
+.interactive-button::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
+    translate-x-[-200%] skew-x-[-45deg] transition-transform duration-700;
+}
+
+.interactive-button:hover::before {
+  @apply translate-x-[200%];
+}
+
+/* Service card enhancements */
+.service-card {
+  @apply bg-navy-900/40 backdrop-blur-sm rounded-xl p-6 
+    transition-all duration-500 hover:scale-105 
+    border border-gray-800/50 hover:border-blue-500/50
+    shadow-lg hover:shadow-blue-500/10
+    relative overflow-hidden futuristic-hover;
+}
+
+.service-card::after {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-all duration-500
+    bg-gradient-to-br from-blue-600/5 via-transparent to-purple-600/5;
+}
+
+.service-card:hover::after {
+  @apply opacity-100;
+}
+
+/* Improved section animations */
+.section-highlight {
+  @apply relative overflow-hidden;
+}
+
+.section-highlight::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5
+    opacity-0 transition-opacity duration-500;
+}
+
+.section-highlight:hover::before {
+  @apply opacity-100;
+}
+
+body {
+  @apply bg-gradient-to-b from-navy-900 via-[#061527] to-navy-900 min-h-screen;
+}
+
+/* Logo animations */
+.logo-hover {
+  @apply transition-all duration-300 hover:scale-105 hover:brightness-110;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-600/50 rounded-full hover:bg-blue-500/70 transition-colors;
+}

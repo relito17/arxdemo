@@ -1,0 +1,73 @@
+/* Theme colors */
+:root {
+  --primary: #36d7ff;
+  --primary-hover: #1ac8ff;
+  --primary-dark: #00b8f0;
+}
+
+/* Custom cursor */
+body {
+  cursor: none;
+}
+
+/* Main cursor */
+.custom-cursor {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.15;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover effect on interactive elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor,
+[role="button"]:hover ~ .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0.9;
+}
+
+/* Theme colors (rest of the file remains the same) */
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary);
+}
+
+.hover\:border-primary:hover {
+  border-color: var(--primary);
+}
+
+.hover\:text-primary:hover {
+  color: var(--primary);
+}

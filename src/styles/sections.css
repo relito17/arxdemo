@@ -1,0 +1,11 @@
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+}
+
+.section-title {
+  @apply text-3xl font-anta text-center text-white mb-12;
+}
+
+.section-subtitle {
+  @apply text-xl text-gray-300 text-center max-w-2xl mx-auto mb-8;
+}

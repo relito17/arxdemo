@@ -1,0 +1,40 @@
+/* Service and pain point cards */
+.service-card {
+  @apply bg-navy-900/40 backdrop-blur-sm rounded-xl p-6 
+    transition-all duration-500
+    border border-gray-800/50 hover:border-[#36d7ff]/50
+    shadow-lg relative overflow-hidden;
+}
+
+.service-card::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-all duration-500
+    bg-gradient-to-r from-[#36d7ff]/10 via-[#36d7ff]/5 to-[#36d7ff]/10;
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Interactive buttons */
+.interactive-button {
+  @apply relative overflow-hidden transition-all duration-300
+    bg-[#36d7ff] hover:bg-[#36d7ff]/90
+    active:bg-[#36d7ff]/80
+    text-white font-medium rounded-full
+    transform hover:scale-105 active:scale-95
+    shadow-lg hover:shadow-[#36d7ff]/25;
+}
+
+.interactive-button::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
+    translate-x-[-200%] skew-x-[-45deg] transition-transform duration-700;
+}
+
+.interactive-button:hover::before {
+  @apply translate-x-[200%];
+}

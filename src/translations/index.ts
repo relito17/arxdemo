@@ -27,7 +27,7 @@ export const translations = {
         businessType: 'Business Type',
         services: 'Which services are you looking for?',
         investment: 'Investment Budget',
-        cta: 'Schedule Your Free Consultation'
+        cta: 'Schedule Your Consultation'
       }
     },
     footer: {
